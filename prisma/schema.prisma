@@ -1,0 +1,54 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model users {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  email     String  @unique
+  password  String
+  phone     String  @unique
+  location  String
+  reviews   reviews[]   
+  appoinments appointments[]  
+}
+
+
+model therapists {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  email      String  @unique
+  password   String
+  phone      String  @unique
+  location   String
+  verified   Boolean @default(false)
+  stars      Int 
+  pricing    Int 
+  reviews reviews[]
+  appointments appointments[]
+}
+
+model reviews{
+    id String @id @default(auto()) @map("_id") @db.ObjectId
+    description String
+    stars     Int
+    userId    String  @db.ObjectId
+    user      users   @relation(fields: [userId], references: [id])
+    therapistId String @db.ObjectId
+    therapist therapists @relation(fields: [therapistId], references: [id])
+}
+
+model appointments {
+    id String @id @default(auto()) @map("_id") @db.ObjectId
+    date DateTime @default(now())
+    startTime String 
+    userId    String  @db.ObjectId
+    user      users   @relation(fields: [userId], references: [id])
+    therapistId String @db.ObjectId
+    therapist therapists @relation(fields: [therapistId], references: [id])
+
+}
+
