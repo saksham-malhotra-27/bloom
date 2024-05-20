@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
       <html lang="en">
-      <body className={`${lato.className} bg-zinc-100`}>
+      <body className={`${lato.className} bg-zinc-100 `}>
       <NextUIProvider>
         <NavBar/>
         <main className="min-h-screen mx-2 md:mx-3 lg:mx-5 pt-14">

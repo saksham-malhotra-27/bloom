@@ -1,5 +1,6 @@
 import React from 'react';
 import {poppins, roboto} from "@/utils/fonts";
+import TeamCard from "@/components/TeamCard";
 
 function OurMission() {
     return (
@@ -57,7 +58,11 @@ function OurMission() {
                 </div>
             </div>
             <div className="md:basis-1/4 bg-zinc-200 m-2 rounded-md p-3 flex flex-col items-center">
-                <h1 className="text-3xl">Our Team</h1>
+                <h1 className="text-3xl mb-4">Our Team</h1>
+
+                <TeamCard name="Saksham Malhotra" university="Amity University, Noida" image="/saksham.png"/>
+                <div className="mt-4"></div>
+                <TeamCard name="Manav Mahesh Sanger" university="Amity University, Noida" image="/manav.png"/>
             </div>
         </div>
     );
