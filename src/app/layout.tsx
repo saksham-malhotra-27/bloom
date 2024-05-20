@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-
+import Nv from "@/components/Nv"
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -16,7 +16,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className} bg-zinc-100`}>
+        <Nv/>
+        <main className="mx-2 md:mx-3 lg:mx-5">
+          {children}
+        </main>
+      </body>
     </html>
   );
 }
