@@ -2,9 +2,11 @@
 
 import {usePathname, useRouter} from "next/navigation"
 import { animatePageOut } from "@/utils/animate"
+import {poppins, roboto} from "@/utils/fonts";
+import {Button} from "@nextui-org/button";
 
 interface Props {
-    href:string, 
+    href:string,
     label:string
 
 }
@@ -17,8 +19,8 @@ export const TransitionLink = ({href, label}: Props)=>{
             animatePageOut(router , href)
         }
     }
-    return(
-        <button className="text-xl text-neutral-900 hover:text-neutral-700"
-        onClick={handleClick}>{label}</button>
+    return (
+        <Button variant="light" radius="sm" className={`text-md ${poppins.className}`}
+                onClick={handleClick}>{label}</Button>
     )
 }
