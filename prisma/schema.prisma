@@ -10,9 +10,7 @@ datasource db {
 model users {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   email     String  @unique
-  password  String
-  phone     String  @unique
-  location  String
+  phone     String?  @unique
   reviews   reviews[]   
   appoinments appointments[]  
 }
