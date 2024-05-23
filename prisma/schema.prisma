@@ -8,45 +8,47 @@ datasource db {
 }
 
 model users {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-  email     String  @unique
-  phone     String?  @unique
-  reviews   reviews[]   
-  appoinments appointments[]  
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  email String @unique
+  role  String
 }
 
+model client {
+  id          String         @id @default(auto()) @map("_id") @db.ObjectId
+  email       String         @unique
+  phone       String         @unique
+  reviews     reviews[]
+  appoinments appointments[]
+}
 
 model therapists {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-  email      String  @unique
-  password   String
-  phone      String  @unique
-  location   String
-  verified   Boolean @default(false)
-  stars      Int 
-  pricing    Int 
-  reviews reviews[]
+  id           String         @id @default(auto()) @map("_id") @db.ObjectId
+  email        String         @unique
+  phone        String
+  location     String
+  verified     Boolean        @default(false)
+  stars        Int
+  pricing      Int
+  reviews      reviews[]
   appointments appointments[]
 }
 
-model reviews{
-    id String @id @default(auto()) @map("_id") @db.ObjectId
-    description String
-    stars     Int
-    userId    String  @db.ObjectId
-    user      users   @relation(fields: [userId], references: [id])
-    therapistId String @db.ObjectId
-    therapist therapists @relation(fields: [therapistId], references: [id])
+model reviews {
+  id          String     @id @default(auto()) @map("_id") @db.ObjectId
+  description String
+  stars       Int
+  therapistId String     @db.ObjectId
+  therapist   therapists @relation(fields: [therapistId], references: [id])
+  client      client?    @relation(fields: [clientId], references: [id])
+  clientId    String?    @db.ObjectId
 }
 
 model appointments {
-    id String @id @default(auto()) @map("_id") @db.ObjectId
-    date DateTime @default(now())
-    startTime String 
-    userId    String  @db.ObjectId
-    user      users   @relation(fields: [userId], references: [id])
-    therapistId String @db.ObjectId
-    therapist therapists @relation(fields: [therapistId], references: [id])
-
+  id          String     @id @default(auto()) @map("_id") @db.ObjectId
+  date        DateTime   @default(now())
+  startTime   String
+  therapistId String     @db.ObjectId
+  therapist   therapists @relation(fields: [therapistId], references: [id])
+  client      client?    @relation(fields: [clientId], references: [id])
+  clientId    String?    @db.ObjectId
 }
-
