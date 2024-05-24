@@ -9,8 +9,8 @@
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/prisma/schema.prisma" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/profile/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/profile/[id]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/auth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OnBoarding.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OnBoarding.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +67,8 @@
       <workItem from="1716377230954" duration="600000" />
       <workItem from="1716460781962" duration="3815000" />
       <workItem from="1716464630635" duration="357000" />
-      <workItem from="1716465003469" duration="79000" />
+      <workItem from="1716465003469" duration="13081000" />
+      <workItem from="1716540558482" duration="182000" />
     </task>
     <servers />
   </component>

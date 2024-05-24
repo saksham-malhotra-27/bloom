@@ -8,9 +8,9 @@ datasource db {
 }
 
 model users {
-  id    String @id @default(auto()) @map("_id") @db.ObjectId
-  email String @unique
-  role  String
+  id    String  @id @default(auto()) @map("_id") @db.ObjectId
+  email String  @unique
+  role  String?
 }
 
 model client {
