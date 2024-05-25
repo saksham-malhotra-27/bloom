@@ -28,13 +28,13 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           id: true
         }
       });
-      if(existingUser){ 
-      
+      if(existingUser){
+        console.log("user exists");
         token.id = existingUser.id
         token.oldUser = "true"
       }
       else {
-       
+        console.log("new user");
         const data = await prisma.users.create({
           data: {
             email: user.email!,
@@ -53,8 +53,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     }, 
 
     async session({session, token}){
+      // @ts-ignore
       session.user.id = token.id
-      session.user.email = token.oldUser
      
       return session;
     }

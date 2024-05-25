@@ -1,4 +1,5 @@
 import { auth } from "@/auth"
+import UserProfile from "@/components/UserProfile";
 
 export default  async function page({params}:{params:{id:string}}) {
     const session = await auth()
@@ -10,7 +11,16 @@ export default  async function page({params}:{params:{id:string}}) {
 
   return (
     <div>
-        {isUser && params.id}
+
+        {isUser && <UserProfile/>}
+
+
+
+
+
+
+
+
         {!isUser && 
         <div>
             visiting {params.id}

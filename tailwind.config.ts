@@ -7,7 +7,15 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    './node_modules/@nextui-org/theme/dist/components/button.js'
+    './node_modules/@nextui-org/theme/dist/components/button.js',
+    './node_modules/@nextui-org/theme/dist/components/input.js',
+    './node_modules/@nextui-org/theme/dist/components/date-picker.js',
+    './node_modules/@nextui-org/theme/dist/components/input.js',
+    './node_modules/@nextui-org/theme/dist/components/checkbox.js',
+    './node_modules/@nextui-org/theme/dist/components/spinner.js',
+    './node_modules/@nextui-org/theme/dist/components/card.js',
+    './node_modules/@nextui-org/theme/dist/components/tabs.js',
+    './node_modules/@nextui-org/theme/dist/components/tab.js',
   ],
     theme: {
         extend: {},

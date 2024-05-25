@@ -5,6 +5,7 @@ import {NextUIProvider} from "@nextui-org/system";
 import NavBar from "@/components/NavBar";
 import {lato} from "@/utils/fonts";
 import { redirect } from "next/navigation";
+import {SessionProvider} from "next-auth/react";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -20,12 +21,14 @@ export default async function RootLayout({
   return (
       <html lang="en">
       <body className={`${lato.className} bg-zinc-100 `}>
-      <NextUIProvider>
-        <NavBar/>
-        <main className="min-h-screen mx-2 md:mx-3 lg:mx-5 pt-14">
-          {children}
-        </main>
-      </NextUIProvider>
+      <SessionProvider>
+          <NextUIProvider>
+              <NavBar/>
+              <main className="min-h-screen mx-2 md:mx-3 lg:mx-5 pt-14">
+                  {children}
+              </main>
+          </NextUIProvider>
+      </SessionProvider>
       </body>
       </html>
   );
