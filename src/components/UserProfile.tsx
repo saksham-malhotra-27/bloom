@@ -3,6 +3,7 @@ import prisma from "@/db";
 import {auth} from "@/auth";
 import {redirect} from "next/navigation";
 import OnBoarding from "@/components/OnBoarding";
+import TherapistProfile from "@/components/TherapistProfile";
 
 async function UserProfile() {
     const session = await auth()
@@ -13,7 +14,7 @@ async function UserProfile() {
     return (
         <div className="">
             {!role &&  <OnBoarding/>}
-            {role && "Hi there manav"}
+            {role && role === "therapist" && <TherapistProfile/>}
         </div>
     );
 }

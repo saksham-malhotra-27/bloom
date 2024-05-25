@@ -16,6 +16,7 @@
     "@nextui-org/input": "^2.1.21",
     "@nextui-org/spinner": "^2.0.28",
     "@nextui-org/system": "^2.1.2",
+    "@nextui-org/tabs": "^2.0.29",
     "@nextui-org/theme": "^2.2.3",
     "@prisma/client": "^5.14.0",
     "@react-three/drei": "^9.105.6",

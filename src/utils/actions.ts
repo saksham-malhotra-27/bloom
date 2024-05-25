@@ -74,5 +74,14 @@ export const onBoardTherapist = async (formData: FormData) => {
     });
 
     revalidatePath(`profile/${user?.id}`);
+}
 
+export const getTherapistAppointments = async (id : string) => {
+    const appointments = await prisma?.appointments.findMany({
+        where : {
+            therapistId : id
+        }
+    });
+
+    return appointments;
 }
