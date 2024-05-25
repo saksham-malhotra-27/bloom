@@ -13,6 +13,7 @@ async function UserProfile() {
     return (
         <div className="">
             {!role &&  <OnBoarding/>}
+            {role && "Hi there manav"}
         </div>
     );
 }

@@ -10,7 +10,7 @@ function FormSubmitButton() {
         <Button type="submit" className="w-full text-stone-50 text-lg" size="lg" color="primary"
                 radius="md">
             {pending ?
-                <Spinner/>
+                <Spinner color="white"/>
                 :
                 "Submit"
             }
