@@ -18,7 +18,7 @@ export default async function NavBar(){
 
             <div className="hidden md:block">
                 <div className="flex md:gap-2 gap-8 text-sm">
-                    <TransitionLink href="/" label='Explore Therapists'/>
+                    <TransitionLink href="/explore" label='Explore Therapists'/>
                     <TransitionLink href="/book" label='Chat Rooms'/>
                     <TransitionLink href="/about" label='Articles'/>
                     <TransitionLink href="/our-mission" label='Our Mission'/>
