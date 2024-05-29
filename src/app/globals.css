@@ -7,4 +7,6 @@ body{
 }
 
 
-
+.details::-webskit-details-marker{
+  display: none;
+}

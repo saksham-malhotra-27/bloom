@@ -40,7 +40,7 @@ model therapists {
   Malpractice_Insurance_document String?
   profilePic                     String
   bio                            String
-  stars                          Int
+  stars                          Int         @default(0)
   reviews                        reviews[]
   appointments                   appointments[]
 }

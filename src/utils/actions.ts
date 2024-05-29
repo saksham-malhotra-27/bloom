@@ -36,7 +36,7 @@ export const onBoardTherapist = async (formData: FormData) => {
     const result = await uploadFile(
         fileStream,
         {
-            publicKey: '12ac0e89f68ff51298c5',
+            publicKey: process.env.PUBLIC_KEY!,
             store: 'auto',
             fileName: email,
         }
