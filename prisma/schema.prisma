@@ -23,6 +23,7 @@ model client {
 
 model therapists {
   id                             String         @id @default(auto()) @map("_id") @db.ObjectId
+  userId                         String
   email                          String         @unique
   name                           String
   phone                          String
@@ -40,7 +41,8 @@ model therapists {
   Malpractice_Insurance_document String?
   profilePic                     String
   bio                            String
-  stars                          Int         @default(0)
+  languages                      String[]
+  stars                          Int            @default(0)
   reviews                        reviews[]
   appointments                   appointments[]
 }
