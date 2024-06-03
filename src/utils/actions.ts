@@ -79,11 +79,25 @@ export const onBoardTherapist = async (formData: FormData) => {
 };
 
 export const getTherapistAppointments = async (id: string) => {
-  const appointments = await prisma?.appointments.findMany({
-    where: {
-      therapistId: id,
+  const appointments = await prisma.appointments.findMany({
+    where: { therapistId: id },
+  });
+  return appointments;
+};
+
+export const bookTherapistAppointment = async (
+  userId: string,
+  therapistId: string,
+  date: string,
+  startTime: string,
+) => {
+  await prisma.appointments.create({
+    data: {
+      therapistId: therapistId,
+      date: date,
+      clientId: userId,
+      confirmed: false,
+      startTime: startTime,
     },
   });
-
-  return appointments;
 };

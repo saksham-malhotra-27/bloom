@@ -30,7 +30,7 @@ async function TherapistProfile() {
       </div>
 
       <div className="mt-5 md:basis-3/4">
-        <TherapistAppointment id={therapist!.id} />
+        <TherapistAppointment id={therapist!.userId} />
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-import {nextui} from "@nextui-org/theme";
+import { nextui } from "@nextui-org/theme";
 
 const config: Config = {
   content: [
@@ -7,28 +7,28 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    './node_modules/@nextui-org/theme/dist/components/(button|input|date-picker|checkbox|spinner|card|tabs|tab|select).js',
+    "./node_modules/@nextui-org/theme/dist/components/(button|input|date-picker|checkbox|spinner|card|tabs|tab|select|calender).js",
   ],
-    theme: {
-        extend: {},
-    },
-    darkMode: "class",
-    plugins: [nextui(
-        {
-            themes: {
-                light: {
-                    // ...
-                    colors: {
-                        primary : "#F5A524",
-                    },
-                },
-                dark: {
-                    // ...
-                    colors: {},
-                },
-                // ... custom themes
-            },
-        }
-    )],
+  theme: {
+    extend: {},
+  },
+  darkMode: "class",
+  plugins: [
+    nextui({
+      themes: {
+        light: {
+          // ...
+          colors: {
+            primary: "#F5A524",
+          },
+        },
+        dark: {
+          // ...
+          colors: {},
+        },
+        // ... custom themes
+      },
+    }),
+  ],
 };
 export default config;

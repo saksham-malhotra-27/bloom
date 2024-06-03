@@ -50,7 +50,7 @@ async function TherapistProfile({ therapist }: { therapist: Therapist }) {
             />
           </div>
 
-          <div className="flex flex-col justify-center items-center w-full">
+          <div className="flex flex-col justify-between items-center w-full">
             <h3 className="font-semibold text-foreground/90 text-lg text-center">
               {therapist?.name}
             </h3>
@@ -82,7 +82,10 @@ async function TherapistProfile({ therapist }: { therapist: Therapist }) {
             <div className="flex w-full items-center mt-4 px-2 text-slate-700 justify-center">
               <div className="flex items-center gap-1">
                 <MapPin size="15" />
-                <p className="text-small"> {therapist?.location}</p>
+                <p className="text-small flex flex-col justify-center h-16">
+                  {" "}
+                  {therapist?.location}
+                </p>
               </div>
             </div>
             <Button className="mt-4 w-full" color="primary">

@@ -6,16 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="e17763af-9188-4b4a-8cac-ec55c46b14c7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.mjs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/prisma/schema.prisma" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/explore/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/explore/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/profile/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/profile/[id]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/BookTherapistCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BookTherapistCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/FormSubmitButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FormSubmitButton.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/MiniCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MiniCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/OnBoarding.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OnBoarding.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TherapistAppointment.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TherapistAppointment.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/TherapistProfile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TherapistProfile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UserProfile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UserProfile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TherapistVisitProfile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TherapistVisitProfile.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/actions.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tailwind.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.ts" afterDir="false" />
     </list>
@@ -83,7 +82,10 @@
       <workItem from="1716613900261" duration="13046000" />
       <workItem from="1717080953347" duration="6902000" />
       <workItem from="1717234945468" duration="2264000" />
-      <workItem from="1717237511649" duration="3981000" />
+      <workItem from="1717237511649" duration="11131000" />
+      <workItem from="1717318035905" duration="595000" />
+      <workItem from="1717385294299" duration="4005000" />
+      <workItem from="1717389351374" duration="4568000" />
     </task>
     <servers />
   </component>

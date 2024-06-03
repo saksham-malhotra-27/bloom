@@ -59,8 +59,10 @@ model reviews {
 
 model appointments {
   id          String     @id @default(auto()) @map("_id") @db.ObjectId
-  date        DateTime   @default(now())
-  startTime   String
+  date        String
+  startTime   String?
+  confirmed   Boolean?
+  payment     Boolean?
   therapistId String     @db.ObjectId
   therapist   therapists @relation(fields: [therapistId], references: [id])
   client      client?    @relation(fields: [clientId], references: [id])
