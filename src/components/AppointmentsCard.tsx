@@ -1,13 +1,19 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import prisma from "@/db";
-import { getTherapistAppointments } from "@/utils/actions";
-import { appointments } from "@prisma/client";
+import {
+  approveTherapistAppointment,
+  getTherapistAppointments,
+  getTherapistServices,
+  getTherapistTimings,
+} from "@/utils/actions";
+import { appointments, services } from "@prisma/client";
 import Link from "next/link";
 import { Button } from "@nextui-org/button";
 
 function AppointmentsCard({ therapistId }: { therapistId: string }) {
   const [appointments, setAppointments] = useState<appointments[]>();
+
   useEffect(() => {
     async function getAppointments() {
       const app = await getTherapistAppointments(therapistId);
@@ -23,7 +29,7 @@ function AppointmentsCard({ therapistId }: { therapistId: string }) {
         </div>
       )}
       {appointments && (
-        <div className="flex items-center justify-center text-base">
+        <div className="flex flex-col  gap-2 items-center justify-center text-base">
           {appointments &&
             appointments.map((appointment) => (
               <div
@@ -49,6 +55,23 @@ function AppointmentsCard({ therapistId }: { therapistId: string }) {
                   </div>
                 </div>
 
+                <div className="flex justify-between gap-2 mt-2">
+                  <div className="flex gap-2">
+                    <span className="text-default-700">Meet Cost :</span>
+                    <span className="">₹ {appointment.cost}</span>
+                  </div>
+
+                  <div className="flex gap-2">
+                    <span className="text-default-700">Meet Duration :</span>
+                    <span className="">{appointment.duration} mins.</span>
+                  </div>
+
+                  <div className="flex gap-2">
+                    <span className="text-default-700">Meet Mode :</span>
+                    <span className="">{appointment.mode}</span>
+                  </div>
+                </div>
+
                 <div className="flex justify-between items-center gap-2 mt-2">
                   <div className="flex gap-2">
                     <span className="text-default-700">Client :</span>
@@ -64,7 +87,7 @@ function AppointmentsCard({ therapistId }: { therapistId: string }) {
                     <span className="text-default-700">Approval :</span>
                     <span className="">
                       {appointment.confirmed ? (
-                        <span className="">Approved</span>
+                        <span className="text-green-700">Approved</span>
                       ) : (
                         <span className="">Pending</span>
                       )}
@@ -74,7 +97,12 @@ function AppointmentsCard({ therapistId }: { therapistId: string }) {
 
                 <div className="flex justify-between items-center gap-2 mt-8">
                   <div className="flex gap-2 items-center">
-                    <Button disabled={!!appointment.confirmed}>
+                    <Button
+                      disabled={!!appointment.confirmed}
+                      onClick={() => {
+                        approveTherapistAppointment(appointment.id);
+                      }}
+                    >
                       Approve Appointment
                     </Button>
                   </div>

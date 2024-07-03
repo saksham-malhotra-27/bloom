@@ -1,7 +1,7 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Card, CardBody, CardHeader } from "@nextui-org/card";
-import { therapists } from "@prisma/client";
+import { services, therapists } from "@prisma/client";
 import { Calendar, CalendarDate } from "@nextui-org/calendar";
 import {
   CalendarDateTime,
@@ -11,10 +11,16 @@ import {
   ZonedDateTime,
 } from "@internationalized/date";
 import { Button } from "@nextui-org/button";
-import { bookTherapistAppointment } from "@/utils/actions";
+import {
+  bookTherapistAppointment,
+  deleteTherapistService,
+  getTherapistServices,
+  getTherapistTimings,
+} from "@/utils/actions";
 import { useSession } from "next-auth/react";
 import { signIn } from "@/auth";
 import FormSubmitButton from "@/components/FormSubmitButton";
+import { Spinner } from "@nextui-org/spinner";
 
 function BookTherapistCard({ therapist }: { therapist: therapists }) {
   const { status, data } = useSession();
@@ -24,6 +30,28 @@ function BookTherapistCard({ therapist }: { therapist: therapists }) {
   const [selectedTime, setSelectedTime] = useState(8);
   const [signInText, setSignInText] = useState(false);
   const [BookedText, setBookedText] = useState(false);
+  const [tservices, setTServices] = useState<services[]>();
+  const [timingscbox, setTimingscbox] = useState<string[]>([]);
+  const [meetD, setMeetD] = useState(therapist.meetDuration);
+  const [meetC, setMeetC] = useState(therapist.sessionCost);
+  const [meetM, setMeetM] = useState(therapist.sessionMode);
+
+  useEffect(() => {
+    async function getServices() {
+      const serv = await getTherapistServices(therapist.userId);
+      if (serv) setTServices(serv);
+    }
+
+    async function getTimings() {
+      const timings = await getTherapistTimings(therapist.userId);
+      if (timings) {
+        setTimingscbox(timings);
+      }
+    }
+
+    getServices();
+    getTimings();
+  }, []);
   return (
     <div>
       <Card isBlurred={true} className="bg-zinc-300/20 h-full ">
@@ -48,44 +76,20 @@ function BookTherapistCard({ therapist }: { therapist: therapists }) {
           <div className="flex flex-col items-center justify-center">
             <p className="text-medium mt-4 mx-10 text-center ">Choose Slot</p>
             <div className="grid grid-cols-2 justify-between gap-2">
-              <Button
-                className="rounded-md px-6 py-2"
-                variant="solid"
-                onClick={() => {
-                  setSelectedTime(8);
-                }}
-              >
-                08:00 AM
-              </Button>
-              <Button
-                className="rounded-md px-6 py-2"
-                variant="solid"
-                onClick={() => {
-                  setSelectedTime(10);
-                }}
-              >
-                10:00 AM
-              </Button>
-
-              <Button
-                className="rounded-md px-6 py-2"
-                variant="solid"
-                onClick={() => {
-                  setSelectedTime(12);
-                }}
-              >
-                12:00 PM
-              </Button>
-
-              <Button
-                className="rounded-md px-6 py-2"
-                variant="solid"
-                onClick={() => {
-                  setSelectedTime(14);
-                }}
-              >
-                2:00 PM
-              </Button>
+              {timingscbox
+                .filter((item, index) => index > 0)
+                .map((timing) => (
+                  <Button
+                    key={timing}
+                    className="rounded-md px-6 py-2"
+                    variant="solid"
+                    onClick={() => {
+                      setSelectedTime(Number(timing));
+                    }}
+                  >
+                    {timing}:00 {Number(timing) < 12 ? "AM" : "PM"}
+                  </Button>
+                ))}
             </div>
           </div>
           <form
@@ -101,13 +105,57 @@ function BookTherapistCard({ therapist }: { therapist: therapists }) {
                   therapist.userId,
                   selectedDate.toString(),
                   selectedTime.toString(),
+                  meetD,
+                  meetC,
+                  meetM,
                 );
                 setBookedText(true);
               }
             }}
           >
+            {tservices && (
+              <div className="flex flex-col mt-8">
+                <p className="text-medium text-center">
+                  Additional Service Options
+                </p>
+                <div className="grid grid-cols-1 text-medium mt-4 gap-2">
+                  {tservices &&
+                    (tservices as services[]).map((service) => (
+                      <div
+                        onClick={() => {
+                          setMeetC(service.meetingCost);
+                          setMeetD(service.meetingDuration);
+                          setMeetM(service.meetingType);
+                        }}
+                        className="rounded-md bg-default-300 p-4 flex flex-col"
+                        key={service.id}
+                      >
+                        <div className=" grid grid-cols-2 md:grid-cols-3 w-full">
+                          <div className="flex gap-2">
+                            <span className="text-default-700">Mode :</span>
+                            <span className="">{service.meetingType}</span>
+                          </div>
+
+                          <div className="flex gap-2">
+                            <span className="text-default-700">Cost :</span>
+                            <span className="">₹ {service.meetingCost}</span>
+                          </div>
+
+                          <div className="flex gap-2">
+                            <span className="text-default-700">Duration :</span>
+                            <span className="">
+                              {service.meetingDuration} mins.
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                </div>
+              </div>
+            )}
             <p className="text-sm my-2 mx-6 text-center">
-              Book Appointment on {selectedDate.toString()} at {selectedTime}:00
+              Request Appointment on {selectedDate.toString()} at {selectedTime}
+              :00 for {meetD} mins. for ₹ {meetC}, {meetM} meeting.
             </p>
             <div className="px-16 flex items-start">
               <FormSubmitButton text="Book Appointment" />

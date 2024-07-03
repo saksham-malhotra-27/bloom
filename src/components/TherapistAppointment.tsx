@@ -29,7 +29,7 @@ function TherapistAppointment({ id }: { id: string }) {
               <Tab key="My Services" title="My Services">
                 <Card>
                   <CardBody className="h-[520px] overflow-y-scroll">
-                    <ServicesCard />
+                    <ServicesCard therapistId={id} />
                   </CardBody>
                 </Card>
               </Tab>

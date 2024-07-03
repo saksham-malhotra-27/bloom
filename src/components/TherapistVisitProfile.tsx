@@ -19,10 +19,10 @@ async function TherapistVisitProfile({ userId }: { userId: string }) {
       </div>
 
       <div className="bg-zinc-200/30 mt-5 md:basis-3/4 flex flex-col md:flex-row gap-2 md:gap-0 rounded-xl">
-        <div className="m-2 md:basis-1/3">
+        <div className="m-2 md:basis-1/2">
           <BookTherapistCard therapist={therapist[0]!} />
         </div>
-        <div className="m-2 md:basis-2/3">
+        <div className="m-2 md:basis-1/2">
           <TherapistReviews therapist={therapist[0]!} />
         </div>
       </div>

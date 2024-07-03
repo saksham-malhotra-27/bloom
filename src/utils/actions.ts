@@ -4,6 +4,7 @@ import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import prisma from "@/db";
+import servicesCard from "@/components/ServicesCard";
 
 export const onBoardUser = async (formData: FormData) => {
   const name = formData.get("name");
@@ -90,6 +91,9 @@ export const bookTherapistAppointment = async (
   therapistId: string,
   date: string,
   startTime: string,
+  meetDuration: string,
+  meetCost: string,
+  meetMode: string,
 ) => {
   await prisma.appointments.create({
     data: {
@@ -98,6 +102,64 @@ export const bookTherapistAppointment = async (
       clientId: userId,
       confirmed: false,
       startTime: startTime,
+      cost: meetCost,
+      mode: meetMode,
+      duration: meetDuration,
     },
+  });
+};
+
+export const approveTherapistAppointment = async (appointmentId: string) => {
+  await prisma.appointments.update({
+    where: { id: appointmentId },
+    data: { confirmed: true },
+  });
+};
+
+export const addTherapistService = async (formData: FormData) => {
+  const therapistId = formData.get("therapistId");
+  const meetType = formData.get("meeting-type");
+  const meetDuration = formData.get("meeting-duration");
+  const meetCost = formData.get("meeting-cost");
+  await prisma.services.create({
+    data: {
+      therapistId: therapistId as string,
+      meetingCost: meetCost as string,
+      meetingDuration: meetDuration as string,
+      meetingType: meetType as string,
+    },
+  });
+};
+
+export const getTherapistServices = async (therapistId: string) => {
+  const services = await prisma.services.findMany({
+    where: { therapistId: therapistId },
+  });
+  return services;
+};
+
+export const deleteTherapistService = async (serviceId: string) => {
+  await prisma.services.delete({ where: { id: serviceId } });
+};
+
+export const getTherapistTimings = async (therapistId: string) => {
+  const timeSlots = await prisma.therapists.findUnique({
+    where: { userId: therapistId },
+    select: { timeSlots: true },
+  });
+
+  // for (let x in timeSlots?.timeSlots) {
+  //   console.log(timeSlots.timeSlots[Number(x)]);
+  // }
+  return timeSlots?.timeSlots;
+};
+
+export const setTherapistTimings = async (
+  therapistId: string,
+  timeslots: string[],
+) => {
+  await prisma.therapists.update({
+    where: { userId: therapistId },
+    data: { timeSlots: timeslots },
   });
 };
