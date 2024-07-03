@@ -7,7 +7,7 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./node_modules/@nextui-org/theme/dist/components/(button|input|date-picker|checkbox|spinner|card|tabs|tab|select|calender).js",
+    "./node_modules/@nextui-org/theme/dist/components/(button|input|date-picker|checkbox|spinner|card|tabs|tab|select|calender|radio).js",
   ],
   theme: {
     extend: {},

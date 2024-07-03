@@ -34,7 +34,7 @@ async function SignInComponent() {
       ) : (
         <div className="flex gap-2">
           {user && (
-            <Link href={`/blogs/create/${user?.id}`}>
+            <Link href={`/blogs/create/${session.user?.id}`}>
               <Button
                 variant="ghost"
                 color="primary"

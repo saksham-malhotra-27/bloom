@@ -165,6 +165,7 @@ export const setTherapistTimings = async (
 };
 
 export async function getUserFromDb(id: string) {
+  console.log(id);
   const therapist = await prisma.therapists.findUnique({
     where: { userId: id },
   });
@@ -176,6 +177,7 @@ export async function uploadBlog(
   formdata: FormData,
   blogContent: string,
 ) {
+  console.log("Upload started");
   const blogTitle = formdata.get("title") as string;
   const blogAuthor = formdata.get("author") as string;
   const blogStatus = formdata.get("publish-status") as string;
@@ -185,24 +187,28 @@ export async function uploadBlog(
   const blogImage = formdata.get("image") as File;
 
   // verifying user
+  console.log("verifying user");
   const user = await getUserFromDb(TherapistId);
   const session = await auth();
-  if (!user || !session || session.user!.id !== user.id) {
+  if (!user || !session || session.user!.id !== user.userId) {
     return;
   }
 
   // getting the tags;
+  console.log("getting tags");
   let tags = blogTags.split(",");
 
   // uploading the image
+  console.log("uploading image");
   const file = await blogImage.arrayBuffer();
   const fileStream = Buffer.from(file);
   const result = await uploadFile(fileStream, {
-    publicKey: process.env.UPLOADCARE_API_KEY!,
+    publicKey: process.env.UPLOADCARE_PUBLIC_KEY!,
     store: "auto",
   });
   const imageUrl = result.cdnUrl as string;
 
+  console.log("uploading blog");
   await prisma.blogs.create({
     data: {
       url: blogTitle.trim().toLowerCase().replaceAll(" ", "-").substring(0, 20),

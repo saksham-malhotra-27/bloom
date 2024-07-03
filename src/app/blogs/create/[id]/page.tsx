@@ -17,8 +17,11 @@ import { Spinner } from "@nextui-org/spinner";
 import { BeatLoader } from "react-spinners";
 import { useSession } from "next-auth/react";
 import { users } from ".prisma/client";
-import { useEditor } from "@tiptap/react";
+import { EditorContent, useEditor } from "@tiptap/react";
 import { lato } from "../../../../utils/fonts";
+import { Radio, RadioGroup } from "@nextui-org/radio";
+import { uploadBlog } from "../../../../utils/actions";
+import "./blogstyle.css";
 
 const limit = 20000;
 const extensions = [
@@ -66,16 +69,14 @@ function Page({ params }: { params: { id: string } }) {
   function formsubmit(formdata: FormData) {
     setFormProcessing(true);
     setError("");
-    console.log(formdata);
     const data = editor?.getHTML();
-    console.log(data);
     if (!data || data.length < 20)
       setError("Blog content should atleast be 20 characters");
     else if (data?.includes("&lt;script&gt;"))
       setError("Script tags are not allowed");
     else {
       uploadBlog(params.id, formdata, data);
-      router.push("/blogs");
+      // router.push("/blogs");
     }
     setFormProcessing(false);
   }
@@ -129,17 +130,15 @@ function Page({ params }: { params: { id: string } }) {
             required={true}
             isRequired={true}
           />
-          <Input
+
+          <span className="text-base mt-4">Choose banner image</span>
+          <input
             type="file"
-            label="choose banner image"
-            placeholder="x"
-            className="h-20"
-            variant="bordered"
+            placeholder="Choose image"
+            className="h-20 text-base"
             accept="image/*"
             name="image"
             required={true}
-            classNames={{ inputWrapper: "h-16" }}
-            isRequired={true}
           />
           <Button
             className="w-full bg-blue-400 p-2 font-semibold text-white rounded-md"
@@ -151,7 +150,7 @@ function Page({ params }: { params: { id: string } }) {
             {!formProcessing && "Save"}
           </Button>
 
-          <p className="bg-default-200 rounded-md m-2 p-3 text-red-700">
+          <p className="bg-default-200 rounded-md m-2 p-3 text-red-700 text-base">
             {error}
           </p>
         </form>
@@ -431,14 +430,16 @@ function Page({ params }: { params: { id: string } }) {
           <EditorContent
             editor={editor}
             maxLength={limit}
-            className={`tiptap  rounded-md  ${lato.className}`}
+            className={`tiptap  rounded-md text-base  ${lato.className}`}
           />
 
           <div className="character-count flex justify-between px-4 mx-2 my-2 bg-default-200/50 rounded-md">
-            <span>
+            <span className="text-sm">
               {editor.storage.characterCount.characters()}/{limit} characters
             </span>
-            <span>{editor.storage.characterCount.words()} words</span>
+            <span className="text-sm">
+              {editor.storage.characterCount.words()} words
+            </span>
           </div>
         </div>
       </div>

@@ -10,7 +10,7 @@ async function Page() {
   let tagsSet: string[] = [];
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col text-base">
       <div
         className="bg-default-200 rounded-md m-2 flex items-center justify-center p-12 text-4xl font-bold
             "
