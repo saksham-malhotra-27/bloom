@@ -6,13 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="e17763af-9188-4b4a-8cac-ec55c46b14c7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/prisma/schema.prisma" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AppointmentsCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AppointmentsCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/BookTherapistCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BookTherapistCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NavBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NavBar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ServicesCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ServicesCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TherapistAppointment.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TherapistAppointment.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TherapistVisitProfile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TherapistVisitProfile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/blogs/create/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blogs/create/[id]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SignInComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SignInComponent.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/actions.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,7 +40,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Manav/projects/bloom/src/app",
+    "last_opened_file_path": "C:/Users/Manav/projects/bloom/public",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -56,8 +54,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Manav\projects\bloom\src\app" />
       <recent name="C:\Users\Manav\projects\bloom\public" />
+      <recent name="C:\Users\Manav\projects\bloom\src\app" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -102,7 +100,8 @@
       <workItem from="1719320436207" duration="23000" />
       <workItem from="1719457360947" duration="682000" />
       <workItem from="1719477908687" duration="86000" />
-      <workItem from="1719993702131" duration="1653000" />
+      <workItem from="1719993702131" duration="1762000" />
+      <workItem from="1719995888085" duration="1720000" />
     </task>
     <servers />
   </component>

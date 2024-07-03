@@ -3,7 +3,6 @@ import React, { useCallback, useEffect, useState } from "react";
 import { redirect, useRouter } from "next/navigation";
 import { Input, Textarea } from "@nextui-org/input";
 import Image from "next/image";
-import { rubik } from "@/src/app/lib/fonts/font";
 import StarterKit from "@tiptap/starter-kit";
 import { CharacterCount } from "@tiptap/extension-character-count";
 import { Color } from "@tiptap/extension-color";
@@ -17,8 +16,9 @@ import { Button } from "@nextui-org/button";
 import { Spinner } from "@nextui-org/spinner";
 import { BeatLoader } from "react-spinners";
 import { useSession } from "next-auth/react";
-import { getUserFromDb, uploadBlog } from "@/src/utils/actions";
 import { users } from ".prisma/client";
+import { useEditor } from "@tiptap/react";
+import { lato } from "../../../../utils/fonts";
 
 const limit = 20000;
 const extensions = [
@@ -431,7 +431,7 @@ function Page({ params }: { params: { id: string } }) {
           <EditorContent
             editor={editor}
             maxLength={limit}
-            className={`tiptap  rounded-md  ${rubik.className}`}
+            className={`tiptap  rounded-md  ${lato.className}`}
           />
 
           <div className="character-count flex justify-between px-4 mx-2 my-2 bg-default-200/50 rounded-md">

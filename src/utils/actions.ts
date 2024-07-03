@@ -163,3 +163,58 @@ export const setTherapistTimings = async (
     data: { timeSlots: timeslots },
   });
 };
+
+export async function getUserFromDb(id: string) {
+  const therapist = await prisma.therapists.findUnique({
+    where: { userId: id },
+  });
+  return therapist;
+}
+
+export async function uploadBlog(
+  TherapistId: string,
+  formdata: FormData,
+  blogContent: string,
+) {
+  const blogTitle = formdata.get("title") as string;
+  const blogAuthor = formdata.get("author") as string;
+  const blogStatus = formdata.get("publish-status") as string;
+  const blogBio = formdata.get("excerpt") as string;
+  let blogTags = formdata.get("tags") as string;
+  blogTags = blogTags.replaceAll(", ", ",");
+  const blogImage = formdata.get("image") as File;
+
+  // verifying user
+  const user = await getUserFromDb(TherapistId);
+  const session = await auth();
+  if (!user || !session || session.user!.id !== user.id) {
+    return;
+  }
+
+  // getting the tags;
+  let tags = blogTags.split(",");
+
+  // uploading the image
+  const file = await blogImage.arrayBuffer();
+  const fileStream = Buffer.from(file);
+  const result = await uploadFile(fileStream, {
+    publicKey: process.env.UPLOADCARE_API_KEY!,
+    store: "auto",
+  });
+  const imageUrl = result.cdnUrl as string;
+
+  await prisma.blogs.create({
+    data: {
+      url: blogTitle.trim().toLowerCase().replaceAll(" ", "-").substring(0, 20),
+      title: blogTitle,
+      author: blogAuthor,
+      authorId: user.userId,
+      status: blogStatus,
+      bio: blogBio,
+      tags: tags,
+      bannerImage: imageUrl,
+      likes: 0,
+      content: blogContent,
+    },
+  });
+}

@@ -92,6 +92,7 @@ model blogs {
   authorId    String     @db.ObjectId
   therapist   therapists @relation(fields: [authorId], references: [id])
   status      String
+  likes       Int?
   bio         String
   tags        String[]
   bannerImage String

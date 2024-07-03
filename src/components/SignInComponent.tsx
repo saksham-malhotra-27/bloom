@@ -8,7 +8,9 @@ async function SignInComponent() {
   const session = await auth();
   let user;
   if (session)
-    user = await prisma.users.findUnique({ where: { id: session.user!.id } });
+    user = await prisma.therapists.findUnique({
+      where: { userId: session.user!.id },
+    });
   return (
     <div>
       {!session?.user ? (
@@ -31,7 +33,7 @@ async function SignInComponent() {
         </div>
       ) : (
         <div className="flex gap-2">
-          {user?.role === "therapist" && (
+          {user && (
             <Link href={`/blogs/create/${user?.id}`}>
               <Button
                 variant="ghost"
