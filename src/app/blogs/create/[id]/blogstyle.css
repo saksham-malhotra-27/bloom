@@ -1,0 +1,63 @@
+h1 {
+    @apply text-3xl md:text-5xl font-semibold my-4 ;
+}
+
+bold {
+    @apply font-semibold;
+}
+
+h2 {
+    @apply text-xl md:text-3xl my-2 text-gray-700 font-bold ;
+}
+
+h3 {
+    @apply text-xl md:text-xl;
+}
+
+h4 {
+    @apply text-lg md:text-lg;
+}
+
+p {
+
+    @apply mb-4
+}
+
+hr {
+    @apply block h-1 my-8 bg-gray-700
+}
+
+ul {
+    list-style-type: disc;
+    margin-left: 1.5rem;
+}
+
+ul li p {
+    margin: 0;
+    @apply shadow-none
+}
+
+ol {
+    list-style-type: decimal;
+    margin-left: 1.5rem;
+}
+
+ol li p {
+    margin: 0;
+    @apply shadow-none
+
+}
+
+code {
+    display: block;
+    white-space: pre-wrap;
+    padding: 0.75rem 1rem;
+    background-color: #434649;
+    color : white;
+}
+
+blockquote {
+    border-left: 4px solid #0077cc;
+    padding-left: 1rem;
+    margin: 1rem 0;
+}

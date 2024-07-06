@@ -23,6 +23,7 @@ model client {
 
 model therapists {
   id                             String         @id @default(auto()) @map("_id") @db.ObjectId
+  userId                         String         @unique
   email                          String         @unique
   name                           String
   phone                          String
@@ -36,13 +37,17 @@ model therapists {
   meetDuration                   String
   sessionCost                    String
   sessionMode                    String
+  timeSlots                      String[]
   RCI_document                   String
   Malpractice_Insurance_document String?
   profilePic                     String
   bio                            String
-  stars                          Int         @default(0)
+  languages                      String[]
+  stars                          Int            @default(0)
   reviews                        reviews[]
   appointments                   appointments[]
+  services                       services[]
+  blogs                          blogs[]
 }
 
 model reviews {
@@ -57,10 +62,40 @@ model reviews {
 
 model appointments {
   id          String     @id @default(auto()) @map("_id") @db.ObjectId
-  date        DateTime   @default(now())
-  startTime   String
+  date        String
+  startTime   String?
+  confirmed   Boolean?
+  cost        String
+  duration    String
+  mode        String
+  payment     Boolean?
   therapistId String     @db.ObjectId
   therapist   therapists @relation(fields: [therapistId], references: [id])
   client      client?    @relation(fields: [clientId], references: [id])
   clientId    String?    @db.ObjectId
+}
+
+model services {
+  id              String     @id @default(auto()) @map("_id") @db.ObjectId
+  therapistId     String     @db.ObjectId
+  therapist       therapists @relation(fields: [therapistId], references: [id])
+  meetingType     String
+  meetingDuration String
+  meetingCost     String
+}
+
+model blogs {
+  id          String     @id @default(auto()) @map("_id") @db.ObjectId
+  url         String?    @unique
+  title       String
+  author      String
+  authorId    String     @db.ObjectId
+  therapist   therapists @relation(fields: [authorId], references: [id])
+  status      String
+  likes       Int?
+  bio         String
+  tags        String[]
+  bannerImage String
+  content     String
+  createdAt   DateTime   @default(now()) @map("created_at")
 }

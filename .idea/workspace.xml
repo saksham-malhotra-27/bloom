@@ -8,7 +8,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UserProfile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UserProfile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/blogs/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blogs/[id]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/blogs/create/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blogs/create/[id]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/blogs/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blogs/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SignInComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SignInComponent.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/actions.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tailwind.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.ts" afterDir="false" />
     </list>
@@ -34,24 +37,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;manav__navbar&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Manav/projects/bloom/public&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Manav\\projects\\bloom\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/Manav/projects/bloom/src/app/blogs/create",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "C:\\Users\\Manav\\AppData\\Roaming\\npm\\node_modules\\prettier",
+    "settings.editor.selected.configurable": "settings.javascript.prettier",
+    "ts.external.directory.path": "C:\\Users\\Manav\\projects\\bloom\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Manav\projects\bloom\src\app\blogs\create" />
       <recent name="C:\Users\Manav\projects\bloom\public" />
+      <recent name="C:\Users\Manav\projects\bloom\src\app" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Manav\projects\bloom\src\app\blogs\create\[id]" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -72,6 +82,32 @@
       <workItem from="1716554764648" duration="7400000" />
       <workItem from="1716562232954" duration="3068000" />
       <workItem from="1716613900261" duration="13046000" />
+      <workItem from="1717080953347" duration="6902000" />
+      <workItem from="1717234945468" duration="2264000" />
+      <workItem from="1717237511649" duration="11131000" />
+      <workItem from="1717318035905" duration="595000" />
+      <workItem from="1717385294299" duration="4005000" />
+      <workItem from="1717389351374" duration="7759000" />
+      <workItem from="1717397398047" duration="4296000" />
+      <workItem from="1717401771409" duration="1898000" />
+      <workItem from="1717403692624" duration="5684000" />
+      <workItem from="1717420553341" duration="441000" />
+      <workItem from="1717501611955" duration="86000" />
+      <workItem from="1717518720808" duration="632000" />
+      <workItem from="1717589241414" duration="932000" />
+      <workItem from="1717694167972" duration="988000" />
+      <workItem from="1718017773318" duration="131000" />
+      <workItem from="1718018835167" duration="634000" />
+      <workItem from="1718027669502" duration="21000" />
+      <workItem from="1718284234629" duration="205000" />
+      <workItem from="1718434617280" duration="310000" />
+      <workItem from="1719231642350" duration="1098000" />
+      <workItem from="1719293407938" duration="628000" />
+      <workItem from="1719320436207" duration="23000" />
+      <workItem from="1719457360947" duration="682000" />
+      <workItem from="1719477908687" duration="86000" />
+      <workItem from="1719993702131" duration="1762000" />
+      <workItem from="1719995888085" duration="3711000" />
     </task>
     <servers />
   </component>

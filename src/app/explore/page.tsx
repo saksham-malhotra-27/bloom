@@ -1,54 +1,54 @@
-
-import React from 'react'
-import MiniCard from '@/components/MiniCard'
-import {Checkbox} from "@nextui-org/checkbox";
-import prisma from '@/db';
-import {Input} from "@nextui-org/input";
-import { getTherapists } from "@/actions/getTherapist"
-import { Button } from '@nextui-org/button';
-import dynamic from 'next/dynamic';
+import React from "react";
+import MiniCard from "@/components/MiniCard";
+import { Checkbox } from "@nextui-org/checkbox";
+import prisma from "@/db";
+import { Input } from "@nextui-org/input";
+import { getTherapists } from "@/actions/getTherapist";
+import { Button } from "@nextui-org/button";
+import dynamic from "next/dynamic";
+import ExplorePageForm from "@/components/ExplorePageForm";
+import Image from "next/image";
 
 interface Therapist {
-  id: string,
-  sessionCost: string,
-  sessionMode: string,
-  profilePic: string,
-  name: string, 
-  meetDuration: string, 
-  experience: string,
-  stars: number
+  id: string;
+  sessionCost: string;
+  sessionMode: string;
+  profilePic: string;
+  name: string;
+  meetDuration: string;
+  experience: string;
+  stars: number;
+  location: string;
 }
 
 interface PageProps {
-  sessionCost?: string,
-  sessionMode?: string,
-  meetDuration?: string, 
-  experience?: string,
-  stars?: string 
+  sessionCost?: string;
+  sessionMode?: string;
+  meetDuration?: string;
+  experience?: string;
+  stars?: string;
 }
 
 function cleanObject<T>(obj: T): T {
   for (const key in obj) {
-    if (obj[key] === undefined || obj[key] === '') {
+    if (obj[key] === undefined || obj[key] === "") {
       delete obj[key];
     }
   }
   return obj;
 }
 
- async function page({searchParams}:{searchParams:PageProps}) {
-  
+async function page({ searchParams }: { searchParams: PageProps }) {
   //console.log('searchp',searchParams)
-  let Object = {}
+  let Object = {};
   const cleanedSearchParams = cleanObject(searchParams);
-  if(cleanedSearchParams.stars)
-  Object = {...cleanedSearchParams, stars: Number(searchParams?.stars)}
-  else 
-  Object = {...cleanedSearchParams}
- // console.log(Object)
+  if (cleanedSearchParams.stars)
+    Object = { ...cleanedSearchParams, stars: Number(searchParams?.stars) };
+  else Object = { ...cleanedSearchParams };
+  // console.log(Object)
   const therapists = await prisma?.therapists.findMany({
     where: {
-      ...Object
+      ...Object,
     },
     select: {
       id: true,
@@ -59,42 +59,48 @@ function cleanObject<T>(obj: T): T {
       meetDuration: true,
       experience: true,
       stars: true,
+      location: true,
+      userId: true,
     },
   });
-    
+
   return (
-    <div className='flex sm:flex-row justify-center gap-2 flex-col h-full w-full '>
-        <div className='hidden sm:flex flex-col mt-5' id='filters'>
-            <h1 className='text-3xl w-full text-center'>Filters</h1>
-            <form action={getTherapists}  className=' flex flex-col gap-2 bg-white p-2 rounded-md'>
-             <Input className=' border-slate-950 border-1 rounded-md' name='sessionCost' type='text' placeholder='Enter each session cost'/>
-
-             <Input name='sessionMode'  className=' border-slate-950 border-1 rounded-md' type='text' placeholder='Enter session mode'/>
-               
-                
-
-             <Input name='meetDuration'  className=' border-slate-950 border-1 rounded-md' type="text" placeholder='Enter meet duration'/>
-
-             <Input name='experience' className=' border-slate-950 border-1 rounded-md'
-             type='text' placeholder='Enter experience'/>
-
-             <Input name='stars' className=' border-slate-950 border-1 rounded-md' type="text" placeholder='Enter stars'/>
-             <Button 
-             type='submit'
-             >
-              Submit
-             </Button>
-            </form>
-        </div>
-        
-        <div className='flex flex-col' id='result'>
-          {therapists.map(therapist=>
-           <MiniCard key={therapist.id}  therapist={therapist} />
-          )}
-        </div>
-         
+    <div className="flex flex-col md:flex-row justify-center items-start gap-1 md:gap-4 max-w-7xl mx-auto">
+      <div className="w-full md:basis-2/6">
+        <ExplorePageForm />
+      </div>
+      <div
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full md:basis-4/6 max-h-[85vh] overflow-y-scroll mt-5 p-4 gap-2
+                bg-default-200/30 rounded-lg"
+        id="result"
+      >
+        {therapists.map((therapist) => (
+          <MiniCard key={therapist.id} therapist={therapist} />
+        ))}
+        {therapists.map((therapist) => (
+          <MiniCard key={therapist.id} therapist={therapist} />
+        ))}
+        {therapists.map((therapist) => (
+          <MiniCard key={therapist.id} therapist={therapist} />
+        ))}
+        {therapists.map((therapist) => (
+          <MiniCard key={therapist.id} therapist={therapist} />
+        ))}
+        {therapists.map((therapist) => (
+          <MiniCard key={therapist.id} therapist={therapist} />
+        ))}
+        {therapists.map((therapist) => (
+          <MiniCard key={therapist.id} therapist={therapist} />
+        ))}
+        {therapists.map((therapist) => (
+          <MiniCard key={therapist.id} therapist={therapist} />
+        ))}
+        {therapists.map((therapist) => (
+          <MiniCard key={therapist.id} therapist={therapist} />
+        ))}
+      </div>
     </div>
-  )
+  );
 }
 
-export default page
+export default page;
