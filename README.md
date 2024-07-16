@@ -1,4 +1,6 @@
 # Bloom
+![image](https://github.com/user-attachments/assets/380894b7-2340-4b5a-adb0-546ec78bd907)
+![image](https://github.com/user-attachments/assets/9511ca54-a0d7-438a-8753-5d886abccb6e)
 
 ## Getting Started
 First, run the development server:
