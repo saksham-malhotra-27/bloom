@@ -23,13 +23,7 @@ function OnBoarding() {
             }}
           >
             <div className="flex flex-col gap-2">
-              <Input
-                type="text"
-                label="Name"
-                radius="md"
-                name="name"
-                isRequired={true}
-              />
+              
               <Input type="phone" label="Phone" radius="md" name="phone" />
               <DatePicker label="Date of Birth" name="dob" />
             </div>

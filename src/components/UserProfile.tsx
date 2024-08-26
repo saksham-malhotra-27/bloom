@@ -4,6 +4,7 @@ import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import OnBoarding from "@/components/OnBoarding";
 import TherapistProfile from "@/components/TherapistProfile";
+import ClientProfile from "./ClientProfile";
 
 async function UserProfile() {
   const session = await auth();
@@ -15,7 +16,7 @@ async function UserProfile() {
     <div className="">
       {!role && <OnBoarding />}
       {role && role === "therapist" && <TherapistProfile />}
-      {role && role === "client" && "<ClientProfile />"}
+      {role && role === "client" && <ClientProfile />}
     </div>
   );
 }
