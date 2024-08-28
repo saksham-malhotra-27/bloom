@@ -7,9 +7,25 @@ import prisma from "@/db";
 import servicesCard from "@/components/ServicesCard";
 
 export const onBoardUser = async (formData: FormData) => {
-  const name = formData.get("name");
   const phone = formData.get("phone");
   const dob = formData.get("dob");
+  const session = await auth();
+  
+  const user   = await prisma.client.create({
+    data:{
+      phone: phone as string, 
+      email: session?.user?.email!, 
+      dob: dob as string ,
+    }
+  })
+  console.log(user)
+  const userUpdated = await prisma.users.update({
+    where:{
+      email: session?.user?.email!,
+    }, data:{ role: "client",}
+  })
+
+  revalidatePath(`profile/${userUpdated.id}`);
 };
 
 export const onBoardTherapist = async (formData: FormData) => {
