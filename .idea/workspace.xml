@@ -6,14 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e17763af-9188-4b4a-8cac-ec55c46b14c7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/blogs/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blogs/[id]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/blogs/create/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blogs/create/[id]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/blogs/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blogs/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SignInComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SignInComponent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/actions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ClientProfile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ClientProfile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UserProfile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UserProfile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UserVisitProfile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UserVisitProfile.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +36,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "feature/blogs",
     "last_opened_file_path": "C:/Users/Manav/projects/bloom/src/app/blogs/create",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",

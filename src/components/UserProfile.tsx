@@ -11,6 +11,7 @@ async function UserProfile() {
   const myUser = await prisma.users.findUnique({
     where: { email: session?.user?.email! },
   });
+
   const role = myUser?.role;
   return (
     <div className="">
